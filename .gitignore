@@ -1,0 +1,13 @@
+   bin/
+   obj/
+   .vs/
+   *.user
+   *.suo
+   .dart_tool/
+   .idea/
+   build/
+   .flutter-plugins
+   .flutter-plugins-dependencies
+   android/.gradle/
+   android/local.properties
+   *.iml
