@@ -1,0 +1,65 @@
+HỌ VÀ TÊN : Nguyễn Quốc Duy
+LỚP       : 23DTHC4
+ĐỀ TÀI    : App chấm công cho nhân viên
+
+---------------------------------------------------------------
+1. LINK NỘP BÀI
+---------------------------------------------------------------
+- GitHub (Frontend Flutter + Backend API):
+  https://github.com/nguyenduy362nt-hub/NguyenQuocDuy_ChamCong
+    + Frontend Flutter : thư mục nguyenquocduy_chamcong
+    + Backend ASP.NET  : thư mục NguyenQuocDuy_ChamCong_API
+- Link API (Swagger)   : https://unloaded-emoticon-stylus.ngrok-free.dev/swagger
+- Link video demo      : https://youtu.be/2Xf6NUv6ZvU
+
+---------------------------------------------------------------
+2. TÊN THEO YÊU CẦU
+---------------------------------------------------------------
+- Project Web API : NguyenQuocDuy_ChamCong_API
+- Cơ sở dữ liệu   : NguyenQuocDuy_ChamCong_DB
+- Project Flutter : nguyenquocduy_chamcong
+
+---------------------------------------------------------------
+3. CÁC CHỨC NĂNG ĐÃ LÀM ĐƯỢC
+---------------------------------------------------------------
+[1] Đăng ký tài khoản qua email
+    - Chọn vai trò Nhân viên / Khách hàng, kiểm tra email hợp lệ và không trùng.
+[2] Đăng nhập: tên đăng nhập + mật khẩu + OTP
+    - Bước 1 nhập tài khoản, mật khẩu -> API gửi OTP 6 số (email + SMS), hiệu lực 5 phút, tối đa 5 lần nhập sai.
+    - Bước 2 nhập OTP (app tự đọc SMS bằng smart_auth) -> nhận JWT.
+[3] Phân quyền
+    - Admin -> Trang quản trị | Nhân viên -> Dashboard nhân viên | Khách hàng -> Trang khách hàng.
+    - API dùng [Authorize(Roles = ...)].
+[4] CRUD
+    - Admin: Nhân viên, Phòng ban, Ca làm việc, Điểm làm việc (geofence), Chấm công, Duyệt đơn nghỉ phép, Xóa đánh giá.
+    - Nhân viên: Đơn nghỉ phép (thêm/sửa/xóa khi còn chờ duyệt), chấm công vào/ra, xem lịch sử.
+    - Khách hàng: Đánh giá nhân viên (thêm/sửa/xóa).
+[5] 3 chức năng chọn thuyết trình (chạy được trên máy ảo)
+    (b) Chia sẻ vị trí   : nhân viên bật chia sẻ, Admin xem vị trí trên bản đồ + khoảng cách tới văn phòng; chấm công kiểm tra bán kính.
+    (d) Đo chuyển động   : đọc gia tốc kế, thử thách lắc 4 lần (có đồ thị) trước khi chấm công GPS.
+    (e) Nhận diện QR     : Admin hiển thị QR, nhân viên quét QR để chấm công.
+[6] Tính năng mới (tự đề xuất)
+    - QR động đổi mỗi 30 giây (chống chấm công hộ), xác thực chuyển động trước khi chấm công GPS,
+      điểm chuyên cần và bảng xếp hạng 30 ngày.
+[7] Giao diện
+    - Material 3, tông màu teal, thanh điều hướng dưới, thẻ bo góc, form động, thông báo lỗi tiếng Việt, kéo để làm mới.
+
+---------------------------------------------------------------
+4. ĐIỂM TỰ CHẤM  (CHỈNH LẠI CHO ĐÚNG VỚI THỰC TẾ CHẠY ĐƯỢC TRONG VIDEO)
+---------------------------------------------------------------
+- Đăng ký / Đăng nhập OTP / Phân quyền : đã làm đủ, tính trong phần CRUD và chức năng chung
+- Các chức năng CRUD                    : 4.0 / 4.5
+- 3 chức năng thuyết trình              : 3.0 / 3.5
+- Tính năng mới                         : 1.0 / 1.0
+- Giao diện đẹp, dễ dùng, chạy được     : 0.8 / 1.0
+- TỔNG TỰ CHẤM                          : 8.8 / 10
+
+Ghi chú: các điểm trừ do chưa thử hết các trường hợp lỗi và chưa kiểm tra trên điện thoại thật (chỉ chạy trên máy ảo Pixel 7).
+
+---------------------------------------------------------------
+5. HƯỚNG DẪN CHẠY NHANH
+---------------------------------------------------------------
+- Backend: mở NguyenQuocDuy_ChamCong_API bằng Visual Studio, đổi chuỗi kết nối trong appsettings.json, chạy profile http (cổng 5245).
+- Frontend: chạy setup_flutter.ps1, mở nguyenquocduy_chamcong bằng Android Studio, chọn máy ảo, Run.
+- Tài khoản: admin / Admin@123 ; nvan / Nv@123456 ; khach1 / Kh@123456
+- Chi tiết xem README.md trong repository.
